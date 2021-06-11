@@ -1,76 +1,64 @@
 var expect = require('chai').expect;
 
-describe('Main', function () {
-  var arr;
+var calc = require('../src/index');
 
-  // Roda uma vez, antes do bloco
-  before(function () {});
+describe('Calc', function () {
+  // smoke tests
+  describe('Smoke tests', function () {
+    it('should exist the calc lib', function () {
+      expect(calc).to.exist;
+    });
 
-  // Roda uma vez, depois do bloco
-  after(function () {});
+    it('should exist the method `sum`', function () {
+      expect(calc.sum).to.exist;
+      expect(calc.sum).to.be.a('function');
+    });
 
-  // Roda todas as vezes, antes de cada bloco
-  beforeEach(function () {
-    arr = [1, 2, 3];
+    it('should exist the method `sub`', function () {
+      expect(calc.sub).to.exist;
+      expect(calc.sub).to.be.a('function');
+    });
+
+    it('should exist the method `mult`', function () {
+      expect(calc.mult).to.exist;
+      expect(calc.mult).to.be.a('function');
+    });
+
+    it('should exist the method `div`', function () {
+      expect(calc.div).to.exist;
+      expect(calc.div).to.be.a('function');
+    });
   });
 
-  // Roda todas as vezes, depois de cada bloco
-  afterEach(function () {});
-
-  // testar tipos ou se existe (smoke test)
-  it('should be an array', function () {
-    expect(arr).to.be.a('array');
+  describe('Sum', function () {
+    it('should return 4 when `sum(2,2)`', function () {
+      expect(calc.sum(2, 2)).to.be.equal(4);
+    });
   });
 
-  it('should have a size of 4 when push another value to the array', function () {
-    arr.push(4);
-    expect(arr).to.have.lengthOf(4);
+  describe('Sub', function () {
+    it('should return 4 when `sub(6,2)`', function () {
+      expect(calc.sub(6, 2)).to.be.equal(4);
+    });
+
+    it('should return -4 when `sub(6,10)`', function () {
+      expect(calc.sub(6, 10)).to.be.equal(-4);
+    });
   });
 
-  it('should have a size of 2 when pop a value from the array', function () {
-    arr.pop();
-    expect(arr).to.have.lengthOf(2);
+  describe('Mult', function () {
+    it('should return 4 when `mult(2,2)`', function () {
+      expect(calc.mult(2, 2)).to.be.equal(4);
+    });
   });
 
-  it('should remove the value 3 when use pop in the array', function () {
-    arr.pop(); // true
-    expect(arr).to.not.include(3);
+  describe('Div', function () {
+    it('should return 2 when `div(4,2)`', function () {
+      expect(calc.div(4, 2)).to.be.equal(2);
+    });
+
+    it('should return `não é possivel divisão por zero` when divide by 0', function () {
+      expect(calc.div(4, 0)).to.be.equal('Não é possivel divisão por zero!');
+    });
   });
 });
-
-// before
-// beforeEach
-// test 1
-// afterEach
-// beforeEach
-// test 2
-// afterEach
-// after
-
-// describe('Main', function () {
-//   describe('Method A', function () {
-//     context('Case 1', function () {
-//       it('should happen blabla', function () {
-//         // Espera o que aconteça
-//         // Entra de dados / método sum(2, 2)
-//         // Espera retornar (4) => true | (3) => false => broken test
-//         throw new Error('just an error');
-//       });
-//     });
-//     context('Case 2', function () {
-//       it('should happen blabla', function () {
-//         // Espera o que aconteça
-//         // Entra de dados / método sum(2, 2)
-//         // Espera retornar (4) => true | (3) => false => broken test
-//         throw new Error('just an error');
-//       });
-//       it('should happen mimimi', function () {
-//         // Espera o que aconteça
-//         // Entra de dados / método sum(2, 2)
-//         // Espera retornar (4) => true | (3) => false => broken test
-//       });
-//     });
-//   });
-
-//   describe('Method B', function () {});
-// });
