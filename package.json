@@ -4,7 +4,9 @@
   "description": "Nossa biblioteca do curso de JS com TDD na prática.",
   "main": "index.js",
   "scripts": {
+    "precommit": "echo 'cristiano'",
     "lint": "./node_modules/.bin/eslint src/*.js",
+    "pre-push": "npm run lint && npm run test:coverage",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register --watch",
     "test:coverage": "nyc npm test"
