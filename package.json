@@ -4,13 +4,10 @@
   "description": "Nossa biblioteca do curso de JS com TDD na prática.",
   "main": "index.js",
   "scripts": {
-    "precommit": "echo 'cristiano'",
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "pre-push": "npm run lint && npm run test:coverage",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register --watch",
-    "test:coverage": "nyc npm test",
-    "prepare": "husky install"
+    "test:coverage": "nyc npm test"
   },
   "husky": {
     "hooks": {
@@ -45,8 +42,9 @@
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.2",
-    "husky": "^6.0.0",
+    "husky": "^4.3.8",
     "mocha": "^9.0.0",
     "nyc": "^15.1.0"
-  }
+  },
+  "dependencies": {}
 }
