@@ -13,7 +13,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo 'cristiano'"
+      "pre-commit": "echo 'cristiano'",
+      "pre-push": "npm run lint && npm run test:coverage",
+      "precommit": "echo 'cristiano'",
+      "prepush": "npm run lint && npm run test:coverage"
     }
   },
   "nyc": {
